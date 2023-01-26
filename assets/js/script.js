@@ -2,7 +2,60 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(function () {
-  // TODO: Add a listener for click events on the save button. This code should
+  const hourNine = document.getElementById('hour-9');
+  const hourTen = document.getElementById('hour-10');
+  const hourEleven = document.getElementById('hour-11');
+  const hourTwelve = document.getElementById('hour-12');
+  const hourThirteen = document.getElementById('hour-13');
+  const hourFourteen = document.getElementById('hour-14');
+  const hourFifteen = document.getElementById('hour-15');
+  const hourSixteen = document.getElementById('hour-16');
+  const hourSeventeen = document.getElementById('hour-17');
+
+  let hourList = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    hourNine,
+    hourTen,
+    hourEleven,
+    hourTwelve,
+    hourThirteen,
+    hourFourteen,
+    hourFifteen,
+    hourSixteen,
+    hourSeventeen,
+  ]
+
+  for (let i = 9; i < hourList.length; i++) {
+    if (dayjs().hour() == [i]) {
+      console.log('present')
+      } else if (dayjs().hour() > [i]) {
+      console.log('past')
+      } else {
+      console.log('future');
+    };
+  };
+
+  // if (dayjs().hour() === hourList[])
+
+  setInterval(() => {
+    let presentDateTime = dayjs().format('dddd, MMMM D YYYY, h:mm:ss A');
+    document.getElementById("currentDay").innerText = presentDateTime;
+  }, 1000);
+
+  console.log(dayjs().hour());
+
+});
+
+
+// TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
   // function? How can DOM traversal be used to get the "hour-x" id of the
@@ -20,4 +73,3 @@ $(function () {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
-});
