@@ -1,6 +1,22 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
+
+
+//global variables
+let currentHour = dayjs().hour() - 9;
+
+
+//Code to display the current date in the header of the page.
+let currentDay = document.getElementById('currentDay');
+currentDay.append(dayjs().format('dddd, MMMM D YYYY, h:mm:ss A'))
+
+// setInterval(() => {
+//   let presentDateTime = dayjs().format('dddd, MMMM D YYYY, h:mm:ss A');
+//   document.getElementById("currentDay").innerText = presentDateTime;
+// }, 1000);
+
+
 $(function () {
   const hourNine = document.getElementById('hour-9');
   const hourTen = document.getElementById('hour-10');
@@ -35,22 +51,22 @@ $(function () {
 
   for (let i = 9; i < hourList.length; i++) {
     if (dayjs().hour() == [i]) {
-      console.log('present')
-      } else if (dayjs().hour() > [i]) {
-      console.log('past')
-      } else {
-      console.log('future');
+    hourList[i].setAttribute('style', 'background-color: #ff6961');
+  } else if (dayjs().hour() > [i]) {
+    console.log('past');
+    hourList[i].setAttribute('style', 'background-color: #d3d3d3')
+    } else {
+      hourList[i].setAttribute('style', 'background-color: #77dd77');
     };
   };
 
-  // if (dayjs().hour() === hourList[])
 
-  setInterval(() => {
-    let presentDateTime = dayjs().format('dddd, MMMM D YYYY, h:mm:ss A');
-    document.getElementById("currentDay").innerText = presentDateTime;
-  }, 1000);
+ 
 
-  console.log(dayjs().hour());
+
+
+
+  // console.log(dayjs().hour());
 
 });
 
@@ -73,3 +89,18 @@ $(function () {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
+
+
+
+   // for (let i = 0; i < 9; i++) {
+  //   if (currentHour == i) {
+  //     console.log('present');
+  //   }
+  //   else if (currentHour > i) {
+  //     console.log('past');
+  //   }
+  //   else if (currentHour < i) {
+  //     console.log('future');
+  //   };
+  // };
+
