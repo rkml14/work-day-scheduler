@@ -5,6 +5,8 @@
 
 //global variables
 let currentHour = dayjs().hour() - 9;
+let saveBtn = document.querySelectorAll('.saveBtn');
+let toDoList = document.querySelectorAll('.description');
 
 
 //Code to display the current date in the header of the page.
@@ -27,6 +29,7 @@ $(function () {
   const hourFifteen = document.getElementById('hour-15');
   const hourSixteen = document.getElementById('hour-16');
   const hourSeventeen = document.getElementById('hour-17');
+
 
   let hourList = [
     "",
@@ -51,24 +54,31 @@ $(function () {
 
   for (let i = 9; i < hourList.length; i++) {
     if (dayjs().hour() == [i]) {
-    hourList[i].setAttribute('style', 'background-color: #ff6961');
-  } else if (dayjs().hour() > [i]) {
-    console.log('past');
-    hourList[i].setAttribute('style', 'background-color: #d3d3d3')
+      hourList[i].setAttribute('style', 'background-color: #ff6961');
+    } else if (dayjs().hour() > [i]) {
+      console.log('past');
+      hourList[i].setAttribute('style', 'background-color: #d3d3d3')
     } else {
       hourList[i].setAttribute('style', 'background-color: #77dd77');
     };
   };
 
+  //Function to save to-do task items, store in local storage & retrieve
+  
+  $(saveBtn).click(function () {
+        // Get nearby values of the description in JQuery
+        let text = $(this).siblings(".description").val();
+        let time = $(this).parent().attr("id");
+        // Save text in local storage
+        localStorage.setItem(time, text);
+    })
 
- 
+  });
 
 
 
 
-  // console.log(dayjs().hour());
 
-});
 
 
 // TODO: Add a listener for click events on the save button. This code should
@@ -104,3 +114,30 @@ $(function () {
   //   };
   // };
 
+
+  // let toDoList = document.querySelectorAll('.description');
+//   var student = document.getElementById("student-names");
+// var grade = document.getElementById("grades");
+// var comment = document.getElementById("msg");
+
+
+//   var studentGrade = {
+//     student: student.value,
+//     grade: grade.value,
+//     comment: comment.value.trim()
+//   };
+//   localStorage.setItem("studentGrade", JSON.stringify(studentGrade));
+
+  // $(“.saveBtn”).on(“click”, function () {
+  //   // $(this) <== the button element clicked.
+  //   // $(this).siblings(‘textarea’)  <== the textarea element
+  //   // $(this).parent() <== div element which is the parent element of button.
+  //   let textAreaValue = $(this).siblings(“textarea”).val();
+  //   let timeBlockId = $(this).parent().attr(‘id’);
+  //   ///add text value to the local storage///
+  //   localStorage.setItem(timeBlockId, textAreaValue);
+  // })
+
+
+  // var hourNineValue = localStorage.getItem(“hour - 9”)
+  // $(“#hour - 9 textarea”).val(hourNineValue)
