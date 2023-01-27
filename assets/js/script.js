@@ -1,8 +1,6 @@
 //Global variables
 let currentHour = dayjs().hour() - 9;
 let saveBtn = document.querySelectorAll('.saveBtn');
-let toDoList = document.querySelectorAll('.description');  //may remove
-
 
 //Code to display the current date in the header of the page.
 let currentDay = document.getElementById('currentDay');
