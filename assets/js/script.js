@@ -6,7 +6,7 @@
 //global variables
 let currentHour = dayjs().hour() - 9;
 let saveBtn = document.querySelectorAll('.saveBtn');
-let toDoList = document.querySelectorAll('.description');
+let toDoList = document.querySelectorAll('.description');  //may remove
 
 
 //Code to display the current date in the header of the page.
@@ -67,15 +67,44 @@ $(function () {
   
   $(saveBtn).click(function () {
         // Get nearby values of the description in JQuery
-        let text = $(this).siblings(".description").val();
+        let text = $(this).siblings("textarea").val();
         let time = $(this).parent().attr("id");
         // Save text in local storage
         localStorage.setItem(time, text);
     })
 
+    let hourNineValue = localStorage.getItem('hour-9')
+    $("#hour-9 textarea").val(hourNineValue)
+
+    let hourTenValue = localStorage.getItem('hour-10')
+    $("#hour-10 textarea").val(hourTenValue)
+
+    let hourElevenValue = localStorage.getItem('hour-11')
+    $("#hour-11 textarea").val(hourElevenValue)
+
+    let hourTwelveValue = localStorage.getItem('hour-12')
+    $("#hour-12 textarea").val(hourTwelveValue)
+
+    let hourThirteenValue = localStorage.getItem('hour-13')
+    $("#hour-13 textarea").val(hourThirteenValue)
+
+    let hourFourteenValue = localStorage.getItem('hour-14')
+    $("#hour-14 textarea").val(hourFourteenValue)
+
+      let hourFifteenValue = localStorage.getItem('hour-15')
+    $("#hour-15 textarea").val(hourFifteenValue)
+
+    let hourSixteenValue = localStorage.getItem('hour-16')
+    $("#hour-16 textarea").val(hourSixteenValue)
+
+    let hourSeventeenValue = localStorage.getItem('hour-17')
+    $("#hour-17 textarea").val(hourSeventeenValue)
+
+
+
   });
 
-
+ 
 
 
 
